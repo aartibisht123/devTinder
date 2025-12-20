@@ -12,7 +12,7 @@ const status = req.params.status;
 
 const allowedStatus = ["interested", "ignored"];
 if(!allowedStatus.includes(status)){
-    throw new Error ("Invalid Status")
+    throw new Error("Invalid Status")
 }
 
 const toUser = await User.findById(toUserId);

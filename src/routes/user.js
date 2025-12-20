@@ -1,12 +1,11 @@
 const express = require("express");
+const userRouter = express.Router();
 const { userAuth } = require("../middleware/auth");
 const ConnectionRequest = require("../models/connectionRequest");
-const ConnectionRequest = require("../models/connectionRequest");
 const User = require("../models/user");
-const userRouter = express.Router();
-
 
 const USER_SAFE_DATA = "firstName lastName photoUrl age skills gender "
+
 userRouter.get('/user/requests/received', userAuth, async(req, res)=>{
     try {
           const loggedInUser = req.user;
@@ -52,11 +51,6 @@ userRouter.get('/user/connection', userAuth, async(req, res)=>{
     } catch (error) {
         res.status(400).send({message : error.message});
     }
-  
-
-
-
-
 })
 
 userRouter.get('/feed', userAuth, async(req, res)=>{
@@ -95,8 +89,13 @@ userRouter.get('/feed', userAuth, async(req, res)=>{
 
     
     } catch (error) {
-      res.status(400) .json({message : error.message}) 
+      res.status(400).json({message : error.message}) 
     }
   
 })
 module.exports = userRouter;
+
+
+
+
+

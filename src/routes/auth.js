@@ -48,7 +48,7 @@ try {
         res.cookie('token', token , {
             expires : new Date(Date.now()+ 8 * 3600000)
         });
-        res.send("Login Successfully")
+        res.send(user)
     }else{
         throw new Error("Invalid credentials")
     }
@@ -60,7 +60,7 @@ authRouter.post('/logout', async (req, res)=>{
     res.cookie("token", null , {
         expires : new Date(Date.now()),
     });
-  res.send("logout successful!!")
-});
+  res.send("logout successfully!!")
+})
 
 module.exports = authRouter
