@@ -49,6 +49,7 @@ gender : {
 },
 photoUrl : {
     type : String,
+    default : ("https://static.vecteezy.com/system/resources/thumbnails/030/504/836/small/avatar-account-flat-isolated-on-transparent-background-for-graphic-and-web-design-default-social-media-profile-photo-symbol-profile-and-people-silhouette-user-icon-vector.jpg"),
     validate(value){
         if(!validator.isURL(value)){
 throw new Error("worng URL " + value)
@@ -57,7 +58,7 @@ throw new Error("worng URL " + value)
 },
 about : {
     type : String,
-    default : ("this is default about")
+    default : "Hey! I'm new here 👋",
 },
 skills : {
     type : [String]
