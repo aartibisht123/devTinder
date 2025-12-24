@@ -50,7 +50,7 @@ gender : {
 },
 photoUrl : {
     type : String,
-    default : ("https://static.vecteezy.com/system/resources/thumbnails/030/504/836/small/avatar-account-flat-isolated-on-transparent-background-for-graphic-and-web-design-default-social-media-profile-photo-symbol-profile-and-people-silhouette-user-icon-vector.jpg"),
+    default : ("https://img.freepik.com/premium-vector/cute-bunny-with-bun_547598-57.jpg?w=360"),
     validate(value){
         if(!validator.isURL(value)){
 throw new Error("worng URL " + value)
