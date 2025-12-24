@@ -7,8 +7,8 @@ const userSchema = new mongoose.Schema({
 firstName : {
 type : String,
 required : true,
-minLenght: 4,
-maxLenght : 50
+minLength: 4,
+maxLength : 50
 },
 lastName : {
     type : String
@@ -33,12 +33,13 @@ if(!validator.isStrongPassword(value)){
     throw new Error("Enter a strong password:" + value)
 }
 },
+},
 age : {
     type : Number,
     min : 18,
-    max : 25,
-    }
-},
+    max : 50,
+    },
+
 gender : {
     type : String,
     validate(value) {
