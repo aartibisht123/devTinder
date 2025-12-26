@@ -22,8 +22,14 @@ const user = new User({
 }
 );
 
-  await user.save();
-res.send("User Added Successfullu!");  
+ const saveUser = await user.save();
+ const token = await saveUser.getJWT();
+  
+        res.cookie('token', token , {
+            expires : new Date(Date.now()+ 8 * 3600000)
+        })
+
+res.json({message : "User Added Successfullu!", data: saveUser});  
 }
 catch(err){
     res.status(400).send("Error : " + err.message);
