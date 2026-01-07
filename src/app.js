@@ -8,8 +8,14 @@ const requestRouter = require('./routes/request')
 const userRouter = require('./routes/user');
 const cors = require('cors');
 const paymentRouter = require('./routes/payment');
+const http = require('http');
+const initializeSocket = require('./utils/socket');
+const chatRouter = require('./routes/chat');
+
+
 require("dotenv").config();
 require('./utils/cronjob');
+
 
 app.use(
     cors({
@@ -25,12 +31,16 @@ app.use('/', authRouter);
 app.use('/', profileRouter);
 app.use('/', requestRouter);
 app.use('/', userRouter);
-app.use('/',paymentRouter );
+app.use('/', paymentRouter );
+app.use('/', chatRouter);
+
+const server = http.createServer(app);
+initializeSocket(server)
 
 connectDB()
 .then(() =>{
     console.log("Database connection established....")
-    app.listen(process.env.PORT, ()=>{
+    server.listen(process.env.PORT, ()=>{
     console.log('server is running on port 3000')
 });
 }
